@@ -71,8 +71,14 @@
     "@storybook/react": "^6.5.7",
     "@storybook/testing-library": "^0.0.11",
     "babel-plugin-named-exports-order": "^0.0.2",
+    "eslint": "^8.0.0",
+    "eslint-config-prettier": "^8.5.0",
+    "eslint-config-react-app": "^7.0.1",
+    "eslint-plugin-prettier": "^4.1.0",
+    "eslint-plugin-react": "^7.30.1",
     "msw": "^0.42.0",
     "msw-storybook-addon": "^1.6.3",
+    "prettier": "^2.7.1",
     "prop-types": "^15.8.1",
     "webpack": "^5.73.0"
   }
