@@ -5,17 +5,13 @@ import { useDispatch, useSelector } from 'react-redux'
 import { updateTaskState } from '../lib/store'
 
 export default function TaskList() {
-	// const events = {
-	// 	onPinTask,
-	// 	onArchiveTask,
-	// }
 	const tasks = useSelector((state) => {
 		const tasksInOrder = [
 			...state.taskBox.tasks.filter((t) => t.state === 'TASK_PINNED'),
 			...state.taskBox.tasks.filter((t) => t.state !== 'TASK_PINNED'),
 		]
 		const filteredTasks = tasksInOrder.filter((t) => {
-			return t.state === 'TASK_PINNED' || t.state === 'TASK_INBOX'
+			return t.state === 'TASK_INBOX' || t.state === 'TASK_PINNED'
 		})
 		return filteredTasks
 	})
@@ -65,16 +61,14 @@ export default function TaskList() {
 
 	return (
 		<div className='list-items' data-testid='success' key={'success'}>
-			{tasks.map((task) => {
-				return (
-					<Task
-						key={task.id}
-						task={task}
-						onPinTask={pinTask}
-						onArchiveTask={archiveTask}
-					/>
-				)
-			})}
+			{tasks.map((task) => (
+				<Task
+					key={task.id}
+					task={task}
+					onPinTask={(task) => pinTask(task)}
+					onArchiveTask={(task) => archiveTask(task)}
+				/>
+			))}
 		</div>
 	)
 }
